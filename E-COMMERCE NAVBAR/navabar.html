@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        body{
+            background-color: rgb(239, 239, 239);
+        }
+   
+        .nav{ 
+            border-radius: 20px;
+            display: flex;
+            height: 80px;
+            background-color: rgb(197, 50, 50);
+            box-shadow: 1px 1px 2px 2px rgb(241, 241, 241);
+        }
+        .nav h2{
+          cursor: pointer;
+        }
+        .nav>div{
+            padding: 1%;
+        }
+        .logo{
+            width: 20%;
+            display: flex;
+        }
+        .text{
+            width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .user{
+            width: 30%;
+            display: flex;
+        }
+        .user>h2{
+            margin-right: 20px;
+            background-color: #80cf8b;
+            padding: 2%;
+            border-radius:10px;
+            color: white;
+        }
+
+        .main{
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            margin: 50px auto;
+          
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            <h1>Reebok</h1>
+        </div>
+        <div class="text">
+            <h2> <a href="./women.html"> Women </a> </h2>
+            <h2> <a href="./men.html"> Men </a> </h2>
+            <h2> <a href="./kids.html"> Kids </a> </h2>
+            <h2> <a href="./Electronics.html"> Electronics </a> </h2>
+        </div>
+        <div class="user">
+            <h2 ><a href="./signup.html"> Sign up </a></h2>
+            <h2> <a href="./signin.html"> Sign in </a></h2>
+        </div>
+    </div>
+   
+</body>
+<script src="./navbar.js"></script>
+</html>

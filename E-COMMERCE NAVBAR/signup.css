@@ -1,0 +1,30 @@
+form {
+    width: 400px;
+    /* border: 1px solid red; */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 3% auto;
+    padding: 3%;
+    background: white;
+  }
+ 
+  input,
+  select {
+    display: block;
+    margin: 15px 0px;
+    font-size: 20px;
+    padding: 2%;
+  }
+  #submit {
+    width: 100%;
+    /* margin: auto; */
+    background-color: rgb(164, 148, 148);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    
+  }
+  
+  #submit:hover{
+      background-color: black;
+      color: white;
+  }
