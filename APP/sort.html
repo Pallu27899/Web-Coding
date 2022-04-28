@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  var nums = [10, 6, 7, 20, 3];
+  //console.log(nums.sort())
+
+  // compare function(a,b){}
+
+  //a=10 b=6 , a-b=4>0
+
+  //[6,10,7,20,3]
+  // a=10,b=7 , a-b=3>0
+  //[6,7,10,20,30]
+  var out = nums.sort(function (p, q) {
+    return p - q;
+  });
+
+  console.log(out);
+
+  var str = ["a", "c", "d", "b", "e", "z"];
+
+  // ascending
+  str.sort(function (a, b) {
+    if (a > b) {
+      return 1;
+    }
+    if (a < b) {
+      return -1;
+    }
+
+    return 0;
+  });
+
+  console.log(str);
+
+  //   descending
+
+  str.sort(function (a, b) {
+    if (a > b) {
+      return -1;
+    }
+    if (a < b) {
+      return 1;
+    }
+
+    return 0;
+  });
+
+  console.log(str);
+
+  var employeeData = [
+    { name: "vijay", designation: "FSD", salary: 9 },
+    { name: "aditya", designation: "FRONTEND", salary: 6 },
+    { name: "kishan", designation: "BACKEND", salary: 12 },
+  ];
+
+ 
+
+</script>

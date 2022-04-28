@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admitted</title>
+    <style>
+      .deleteText {
+        color: red;
+        cursor: pointer;
+      }
+    </style>
+    <link rel="stylesheet" href="commonStyles.css" />
+  </head>
+
+  <body>
+    <div id="links">
+      <div><a href="index.html">Home</a></div>
+      <div><a href="applied.html">Applied Jobs</a></div>
+      <div><a href="bookmark.html">Bookmarks</a></div>
+    </div>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Job Applied</th>
+            <th>Salary</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="body"></tbody>
+      </table>
+    </main>
+  </body>
+  <script>
+    //you need to code here
+    var bookMarkArr = JSON.parse(localStorage.getItem("bookmarks"));
+    // 3
+    displayData(bookMarkArr);
+
+    function displayData(data) {
+      data.forEach(function (elem, index) {
+        var tr = document.createElement("tr");
+
+        var td1 = document.createElement("td");
+        td1.innerText = elem.personName;
+
+        var td2 = document.createElement("td");
+        td2.innerText = elem.personEmail;
+
+        var td3 = document.createElement("td");
+        td3.innerText = elem.personRole;
+        
+        var td4 = document.createElement("td");
+        td4.innerText = elem.personSalary;
+
+        var td5 = document.createElement("td");
+        td5.innerText = "Delete";
+        td5.setAttribute("class", "deleteText");
+        td5.addEventListener("click", function () {
+          deleteItem(elem, index);
+        });
+
+        tr.append(td1, td2, td3, td4, td5);
+
+        document.querySelector("tbody").append(tr);
+      });
+    }
+
+    function deleteItem(elem, index) {
+      bookMarkArr.splice(index, 1);
+      localStorage.setItem("bookmarks", JSON.stringify(bookMarkArr));
+      window.location.reload();
+      // var updatedData = JSON.parse(localStorage.getItem("bookmarks"));
+      // displayData(updatedData);
+    }
+    // var arr = [1, 2, 3, 4, 5];
+
+    // localStorage.setItem("sampleArr", JSON.stringify(arr));
+
+    // // splice()
+
+    // // splice(startIndex, deleteCount)
+    // arr.splice(1, 1);// [1,3,4,5]
+    // localStorage.setItem("sampleArr", JSON.stringify(arr));
+  </script>
+</html>
