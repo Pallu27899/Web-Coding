@@ -1,0 +1,82 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+  width: 400px;
+  /* border: 1px solid red; */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 3% auto;
+  padding: 3%;
+  background: white;
+}
+img{
+    height: 70px;
+    margin-left: 650px;
+    
+}
+input,
+select {
+  display: block;
+  margin: 15px 0px;
+  font-size: 20px;
+  padding: 2%;
+}
+#submit {
+  width: 100%;
+  /* margin: auto; */
+  background-color: rgb(164, 148, 148);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  
+}
+
+#submit:hover{
+    background-color: black;
+    color: white;
+}
+    </style>
+</head>
+<body>
+    <img src="https://www.masaischool.com/img/navbar/logo.svg" alt="">
+    <form id="form">
+        <h1>Sign Up</h1>
+        <p>Full Name</p>
+        <input id="Name" type="text" placeholder="Enter Your Name">
+        <p>Email</p>
+        <input id="Email" type="text" placeholder="Enter Email">
+        <p>Password</p>
+        <input id="Password" type="password" placeholder="Enter Password">
+        <input id="submit" type="submit" name="submit" value="Submit" />
+    </form>
+    
+</body>
+</html>
+<script>
+    document.querySelector("#form").addEventListener("submit" , myRule)
+
+    function myRule(){
+        event.preventDefault()
+
+        var name= document.getElementById("Name").value;
+        var email = document.getElementById("Email").value;
+        var pass = document.getElementById("Password").value
+
+        var user = {
+            Name :  name,
+            Email : email,
+            Password : pass,
+        };
+
+        var josn = JSON.stringify(user);
+        localStorage.setItem(user, josn)
+        console.log("user added")
+        // alert("Sign In Successful")
+        window.location.href ="SignIn.html"
+    }
+</script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+  width: 400px;
+  /* border: 1px solid red; */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 3% auto;
+  padding: 3%;
+  background: white;
+}
+img{
+    height: 70px;
+    margin-left: 650px;
+    
+}
+input,
+select {
+  display: block;
+  margin: 15px 0px;
+  font-size: 20px;
+  padding: 2%;
+}
+#submit {
+  width: 100%;
+  /* margin: auto; */
+  background-color: grey;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  
+}
+
+#submit:hover{
+    background-color: black;
+    color: white;
+}
+    </style>
+</head>
+<body>
+    <img src="https://www.masaischool.com/img/navbar/logo.svg" alt="">
+    <form id="form">
+        <h1>Sign In</h1>
+        <p>Email</p>
+        <input id="Email" type="text" placeholder="Enter Email">
+        <p>Password</p>
+        <input id="Password" type="password" placeholder="Enter Password">
+        <input id="submit" type="submit" name="submit" value="Submit" />
+    </form>
+    
+</body>
+</html>
+<script>
+    var form = document.querySelector("form");
+    var user = JSON.parse(localStorage.getItem("user"))
+
+    form.addEventListener("submit" , function(event){
+        event.preventDefault()
+
+        var data ={
+            email :form.Email.value,
+            password : form.Password.value
+        }
+
+        if(user === null){
+            alert("please create an account")
+        }else if(user.Email==data.email && user.Password==data.password){
+            alert("Singin")
+        }
+    })
+</script>
