@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div id="links">
+      <div><a href="home.html">HOME</a></div>
+      <div><a href="dashboard.html">DASHBOARD</a></div>
+       <div id="batch">
+        <div id="b1">Batch01</div>
+        <div id="bar"> |</div>
+        <div id="b2">Batch02</div>
+       </div>
+       
+      </div>
+      <main>
+        <table>
+          <thead>
+            <tr>
+              <th>Student Image</th>
+              <th>Student Name</th>
+              <th>Course</th>
+              <th>Unit</th>
+              <th>Batch</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Append your output to tbody -->
+          </tbody>
+        </table>
+      </main>
+</body>
+</html>
+<script>
+   var detailsOfStudent = JSON.parse(localStorage.getItem("details"));
+   displayData(detailsOfStudent);
+
+
+  
+function displayData(data){
+    var count1=0;
+    var count2=0;
+  data.forEach(function(elem,i){
+
+    var R1 = document.createElement("tr")
+
+    var C1 = document.createElement("img")
+    C1.setAttribute("src",elem.imgurl)
+ 
+    var C2 = document.createElement("td")
+    C2.innerText=elem.name
+    C2.style.fontWeight="bold"
+
+    var C4 = document.createElement("td")
+    C4.innerText=elem.course
+    C4.style.fontFamily="Sans-serif"
+
+    var C5 = document.createElement("td")
+    C5.innerText=elem.unit
+    C5.style.fontFamily="Sans-serif"
+
+
+    var C6 = document.createElement("td")
+    C6.innerText=elem.batch
+    C6.style.fontFamily="Sans-serif"
+
+    // console.log(elem.batch)
+    if(elem.batch=="Batch01")
+    count1++
+    else if(elem.batch=="Batch02")
+    count2++
+    
+    var b1 = document.querySelector("#b1").innerText=`Batch01:${count1}`
+    var b2 = document.querySelector("#b2").innerText=`Batch02:${count2}`
+    console.log(count2,count1)
+
+    var C7 = document.createElement("td")
+    C7.innerText="Remove"
+    C7.style.fontFamily="Sans-serif"
+    C7.style.color="red"
+    C7.style.cursor="pointer"
+    C7.addEventListener("click", function(elem,i){
+        
+      remove(elem,i)
+     
+    })
+    console.log(i)
+    R1.append(C1,C2,C4,C5,C6,C7)
+    document.querySelector("tbody").append(R1)
+  })
+
+
+//   var trasharr=[]
+function remove(elem,i){
+    // trasharr.push(elem)
+    detailsOfStudent.splice(i,1)
+    // localStorage.setItem("trash",JSON.stringify(trasharr))
+    localStorage.setItem("details",JSON.stringify(detailsOfStudent))
+    window.location.reload()
+    
+}
+
+
+}
+
+
+
+</script>
