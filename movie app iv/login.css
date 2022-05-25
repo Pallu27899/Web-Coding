@@ -1,0 +1,36 @@
+#login-form-div{
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius: 10px;
+    width:250px;
+    margin :auto;
+    text-align: center;
+    margin-top: 10%;
+    height:200px
+}
+#login-form-div h2{
+    padding-top: 20px ;
+}
+#login-form-div #submit{
+  color:white;
+    background-color: teal;
+    padding:5px 25px 5px 25px;
+    border:none;
+    border-radius: 5px;
+
+}
+#navbar{
+    display:flex;
+    justify-content: flex-end;
+    border: 2px solid black;
+    padding:10px 0px 10px 0px
+}
+#navbar div{
+    padding-left: 22px;
+    padding-right: 22px;
+    font-weight: 800;
+}
+#navbar a{
+    text-decoration: none;
+    color:black;
+}

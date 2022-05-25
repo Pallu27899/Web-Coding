@@ -1,0 +1,36 @@
+#navbar{
+    display:flex;
+    justify-content: flex-end;
+    border: 2px solid black;
+    padding:10px 0px 10px 0px
+}
+#navbar div{
+    padding-left: 22px;
+    padding-right: 22px;
+    font-weight: 800;
+}
+#navbar a{
+    text-decoration: none;
+    color:black;
+}
+#slideshow{
+    width:100%;
+    height:50%;
+}
+#slideshow img{
+    width:100%;
+    height:500px
+}
+#movies{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,500px);
+    gap:20px
+}
+#movies img{
+    width:100%;
+    height:75%
+}
+#movies div{
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;}
