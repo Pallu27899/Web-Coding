@@ -1,0 +1,36 @@
+
+*{
+        padding: 0px;
+        margin: 0px;
+}
+ #navbar{
+            height: 50px;
+            background-color:brown;
+            width: 100%;
+            margin-top: 0px;}
+body{
+    background-color: whitesmoke;
+}
+#navbar>h1{
+   color: black;
+    margin-left: 75%;
+}
+
+#container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 80px;
+     width: 90%;
+     margin: auto;
+     margin-top: 50px;
+    }
+#container>div{
+    height: 300px;
+    border: 2px solid rgb(10, 10, 10);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#img{
+    height: 100%;
+    width: 100%;
+}
+  

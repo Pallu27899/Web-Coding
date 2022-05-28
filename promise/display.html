@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display</title>
+  <link rel="stylesheet" href="display.css">
+</head>
+<body>
+    <div id="navbar"><h1 id="h1">Order ID</h1></div>
+    <div id="container">
+
+    </div>
+    
+</body>
+</html>
+<script>
+    var OrderData=JSON.parse(localStorage.getItem("OrderData"))
+
+    function checkcontent(){
+        if(OrderData.length>0)
+        return true;
+        else window.location.href="index.html"
+    }
+
+    function order(){
+        let promise=new promise(function(resolve,reject){
+            let p=checkcontent()
+
+            if(p===true){
+                setTimeout(function(){
+                    resolve(order);
+                    
+                },2000)
+            }
+            else {
+                reject("Sorry,We can't deliever this item")
+            }
+        })
+    }
+
+SEEdata()
+
+function SEEdata(){
+    var OrderData=JSON.parse(localStorage.getItem("OrderData"))
+
+    let container=document.getElementById("container")
+   var Count=1;
+
+let h1=document.querySelector("h1")
+h1.innerText="Order ID : "+Count;
+    
+    
+OrderData.forEach(function(el,i) {
+
+        let div=document.createElement("div")
+        
+        let name=document.createElement("h1")
+        name.innerText=i+1+":"+el
+
+        let img=document.createElement("img")
+    img.setAttribute("id","img")
+    if(el=="Veg Pizza")img.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSH5sF5LdtmDfNxiht4k2WWrOr7Ykr5ewkQ&usqp=CAU";
+
+else if(el==="Noodle")img.src="https://c.ndtvimg.com/2022-03/brodu8s_noodles_625x300_02_March_22.jpg";
+
+else if(el==="Paneer")img.src="https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-deluxe-crispy-chicken-sandwich:1-4-product-tile-desktop";
+
+else if(el==="Nonveg Thali")img.src="https://images.hindustantimes.com/rf/image_size_640x362/HT/p2/2017/10/07/Pictures/_df6cfee8-ab4b-11e7-8fa9-3a95f17ae4d1.jpg";
+
+else if(el==="Masala Dosa")img.src="https://newsroompost.com/wp-content/uploads/2022/05/yrtdyr.jpg";
+
+else if(el==="burger")img.src="https://res.cloudinary.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/bera1dflwj6rwa1iozh3";
+
+else if(el==="Biryani")img.src="https://c.ndtvimg.com/2022-04/fq5cs53_biryani-doubletree-by-hilton_625x300_12_April_22.jpg?im=FaceCrop,algorithm=dnn,width=1200,height=886";
+
+else if(el==="Rasgula")img.src="https://i.ytimg.com/vi/4kEQ21ZMQPE/maxresdefault.jpg";
+
+else if(el==="Gulab Jamun")img.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXF3TN0NQaQO_vkZwGoIz9C-qRV7uCJnzNVQ&usqp=CAU";
+
+          div.append(img,name)
+
+             container.append(div)
+    });
+
+}
+</script>

@@ -1,0 +1,86 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1 id="hed">McDonald’s</h1>
+    <div id="slideshow">
+        <!--Show Slideshow here-->
+
+    </div >
+    <!-- <div id="img"><img src="https://mosescatering.com.au/img/photography/1317125.png"/> -->
+    </div>
+<h1>McDonald’s FOOD LIST</h1>
+    <form action="">
+
+        <input type="checkbox" name="food" id="veg" value="Veg Pizza">Veg Pizza
+        <input type="checkbox"name="food"  id="Noodle" value="Noodle">Noodle
+        <input type="checkbox" name="food" id="veg paneer" value="Paneer">Paneer
+        <input type="checkbox" name="food" id="thali" value="Nonveg Thali">Nonveg Thali
+        <input type="checkbox" name="food" id="Dosa" value="Masala Dosa">Masala Dosa
+        <input type="checkbox" name="food" id="burger" value="burger">burger
+        <input type="checkbox" name="food" id="biryani" value="Biryani">Biryani
+        <input type="checkbox"name="food"  id="rasgula" value="Rasgula">Rasgula
+        <input type="checkbox"name="food"  id="gulab jamun" value="Gulab Jamun">Gulab Jamun
+        <input type="submit" value="Order Food" id="submit">
+    </form>
+</body>
+</html>
+<script>
+      document.querySelector("form").addEventListener("submit",function(event){
+      event.preventDefault()
+      var checkboxs=document.getElementsByName("food")
+
+ var OrderData=[]
+ console.log(OrderData)
+ for(var i=0;i<checkboxs.length;i++)
+ {
+    if(checkboxs[i].checked===true)
+    {
+        OrderData.push(checkboxs[i].value)
+    }
+}+
+
+localStorage.setItem("OrderData",JSON.stringify(OrderData))
+setInterval(function showdata()
+{
+    if(OrderData.length>0)
+    {
+        window.location.href="display.html"
+    }
+    else window.location.href="index.html"
+},2000)
+
+showdata()
+})
+   
+let poster=[{url:" https://images.hindustantimes.com/rf/image_size_640x362/HT/p2/2017/10/07/Pictures/_df6cfee8-ab4b-11e7-8fa9-3a95f17ae4d1.jpg"},
+{url:"https://res.cloudinary.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/bera1dflwj6rwa1iozh3"},
+{url:"https://i.ytimg.com/vi/4kEQ21ZMQPE/maxresdefault.jpg"}]
+
+
+
+let div=document.createElement("div")
+let img=document.createElement("img")
+
+let i=0
+   
+  setInterval(function(){
+   if(i==poster.length){
+       i=0
+   }
+        img.src=poster[i].url
+        console.log(i)
+      i++
+  },1000)
+  div.append(img)
+  document.querySelector("#slideshow").append(div)
+
+
+
+</script>
