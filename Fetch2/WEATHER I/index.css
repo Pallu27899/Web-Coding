@@ -1,0 +1,64 @@
+body{
+    background-color:black;
+}
+h2{
+    /* font-size: 20px; */
+    font-weight: bold;
+    color: brown;
+}
+#cont{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    width: 25%;
+    margin: auto;
+    color: antiquewhite;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    background-color: rgb(14, 38, 39);
+    text-align: center;
+}
+#container{
+    display: flex;
+    width: 95%;
+    margin: auto;
+    margin-top: 30PX;
+    gap: 30px;
+}
+
+    #info{
+      display: flex;
+        width: 30%;
+         margin: auto;
+        gap: 25px;
+        
+        
+    }
+     #city{
+        margin-top: 20%;
+        height: 30px;
+        width: 40%;
+        border-radius: 3px;
+        border: 0;
+        margin-left: -270px;
+     }
+        
+     #search{
+         margin-top: 20%;
+       height: 30px;
+        width: 23%;  
+        border-radius: 5px;
+        border: 0;
+        color: rgb(8, 8, 8);
+    } 
+    #search:hover{
+        background-color: rgb(14, 38, 39);
+        color: gold;
+    }
+    h1{ 
+        background-color: azure;
+        font-size: 50px;
+        text-align: center;
+        color: rgb(220, 23, 23);
+        margin-bottom: 10px;
+    }
