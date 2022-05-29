@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body{
+            background-color: black;
+        }
+       
+        input{
+            margin-top: 30px;
+            padding: 5px;
+            margin-left: 10%;
+            width: 290px;
+        }
+        #movies{
+            border:solid 1px white;
+            margin-left: 10%;
+            height: 350px;
+            width:300px;
+            border-radius: none;
+            overflow: scroll;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+            
+        }
+        #box{
+            width:70%;
+            margin-top: 5%;
+            margin-left: 10%;
+            /* margin: auto; */
+            display: grid;
+          
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+            
+        }
+        h1{
+            background-color: beige;
+            text-align: center;
+            font-size: 50px;
+            color: red;
+            margin-bottom: 6px;
+            /* display: flex; */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>HOTSTAR</h1>
+
+    <input oninput="deboucing(main,1000)" type="text" name="" id="query" placeholder="Search Your Movie">
+    <div id="movies"></div>
+    <div id="box"></div> 
+ 
+</body>
+</html>
+<script>
+    let id;
+    let y=document.getElementById('movies')
+    let box=document.getElementById('box')
+    async function getmovies(query){
+        
+        
+        try{
+            let url=`https://omdbapi.com/?s=${query}&page=1&apikey=adc7c134`;
+            let res = await fetch(url)
+            let data = await res.json();
+            return data.Search;
+            
+
+        }
+        catch(error){
+            console.log('error',error)
+        }
+    }
+    function appendM(movies){
+        y.innerText=null;
+        box.innerText=null;
+
+        if(movies===undefined)
+        {
+            return false;
+        }
+        movies.forEach(function(el){
+
+            let p= document.createElement("p")
+            p.innerText=el.Title
+            p.style.color="white"
+
+            y.append(p)
+
+            let image=document.createElement("img")
+            image.src=el.Poster;
+            
+
+
+            let name=document.createElement("h2")
+            name.innerText=el.Title;
+            name.style.color="red"
+            console.log(name)
+
+            let type=document.createElement("h3");
+            type.innerText="Type :"+el.Type;
+            type.style.color="white"
+
+            let year=document.createElement("h3")
+            year.innerText="Year :"+el.Year;
+            year.style.color="white"
+
+            let imdb=document.createElement("p")
+            imdb.innerText="Imdb :"+el.imdbID;
+            imdb.style.color="white"
+            y.append(p);
+
+            box.append(image,name,type,year,imdb)
+        });
+    }
+
+    async function main(){
+        let query = document.getElementById("query").value;
+        let x = getmovies(query)
+        let data = await x;
+        console.log(data)
+        appendM(data)
+    }
+
+    function deboucing(func,delay){
+        if(id)
+        {
+            clearTimeout(id)
+        }
+        id=setTimeout(function(){
+            func();
+        },delay)
+    }
+</script>

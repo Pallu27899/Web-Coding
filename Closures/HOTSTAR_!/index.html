@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            background-color: antiquewhite;
+            color: darkred;
+            text-align: center;
+            padding: 5px;
+        }
+    div{
+        /* margin-top: 20%; */
+        height:300px;
+        width:250px;
+        border:solid 1px white;
+       
+        overflow:scroll;
+        margin-left: 30%;
+
+    }
+    body{
+        background-color: black;
+        color: white
+    }
+    input{
+        width:230px;
+
+        padding: 10px;
+        margin-top: 5%;
+        margin-left: 30%;
+        background-color:khaki
+    }
+    button{
+        padding: 10px;
+        border-radius: 3px;
+        background-color: brown;
+    }
+</style>
+</head>
+<body>
+    <h1>HOTSTAR</h1>
+    <input  oninput=" debounce(myfunction,1000)" type="text" id="mv">
+    <button>Search Movie</button>
+    <div onclick="showdetails()">
+
+    </div>
+</body>
+</html>
+<script>
+    let id;
+     async function movies(q){
+        var url=`http://www.omdbapi.com/?s=${q}&apikey=adc7c134`
+        var res= await fetch(url);
+        var data=await res.json()
+        return (data.Search)
+     }
+     function append(m){
+        
+         
+             var d= document.querySelector("div")
+             d.innerHTML=null
+             if(m==undefined){
+                 return false
+             }
+             else{
+                 m.forEach(function(el){
+                    var movie=document.createElement("h4")
+                     movie.innerText=el.Title
+
+                      d.append(movie)
+
+                 })
+           
+
+             }
+     }
+     async function myfunction(){
+        
+       var a= document.querySelector("#mv").value;
+    //    console.log(a)
+       var res= await movies(a)
+       var dat= await res
+       console.log(dat)
+       
+       append(dat)
+        
+
+    }
+    function debounce(func,delay){
+        if(id){
+            clearTimeout(id);
+        }
+        
+            id=setTimeout(function(){
+                func();
+            },delay)
+        
+    }
+    async function showdetails(){
+        var a= document.querySelector("#mv").value;
+    //    console.log(a)
+       var res= await movies(a)
+       var dat= await res
+        for(var i=0;i<dat.length;i++){
+             onclick=console.log(dat[i])
+                
+            }
+
+        }
+    
+   
+</script>
