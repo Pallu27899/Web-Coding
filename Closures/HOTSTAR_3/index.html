@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotstar search Movies- Description</title>
+    <style>
+        body{
+             background-image: url("https://monophy.com/media/TxVVB6PfWMjE4/monophy.gif");
+        }
+        #cont,#head{
+            width: 80%;
+            color: rgb(232, 228, 228);
+            margin: auto;
+            display: flex;
+            justify-content: space-around;
+
+        }
+        #head{
+            font-size: 30px;
+        }
+        input{
+            width: 370px;
+            padding: 8px;
+        }
+        #movies{
+            color: white;
+            height: 300px;
+            width: 372px;
+            padding: 8px;
+            border: 1px solid rgb(127, 155, 155);
+            border-top: none;
+            overflow: scroll;
+            
+        }
+        #More{
+            font-size: 30px; 
+             text-align:center;
+            
+        }
+        #movies>div{
+            display: flex;
+            margin: 6px 0;
+            
+        }
+        #movies>div>img{
+            max-width: 40%;
+            min-width: 40%;
+            max-height: 80px;
+            margin-right: 8px;
+        }
+        #search{
+            width: 25%;
+            padding: 20px;
+        }
+       
+        #movieDesc{
+            display: flex;
+            width: 700px;
+            height: auto;
+            color: white;
+            border-radius: 2px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+        }
+        #movieDesc>div>img{
+            width: 100%;
+            max-height: 550px;
+        }
+        #movieDesc>div{
+            padding: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="head">
+        <h2>SEARCH MOVIE</h2>
+        <h2>RESULT</h2>
+    </div>
+    <div id="cont">
+        <div id="search">
+            <input id="query" oninput="debounceFunction(main,600)" type="text" placeholder="Enter movie name">
+            <div id="movies"></div>
+        </div>
+        <div id="movieDesc"></div>
+    </div>
+    <h2 style="font-size: 60px; color:white; text-align:center">TRENDING MOVIES</h2>
+    <div id="trending">
+
+    </div>
+    <div  id="More" > <a href="trending.html">SEE MORE</a></div>
+  
+</div>
+</body>
+</html>
+<script>
+// url ---> https://www.omdbapi.com/?s=${query}&apikey=adc7c134
+
+    // get search data from imdb API
+    async function searchMovies(query){
+        try{
+        const url = `https://www.omdbapi.com/?s=${query}&apikey=adc7c134`;
+        let res = await fetch(url);
+        let data = await res.json();
+        return data.Search;
+        }catch(error){
+            console.log('error: ',error);
+        }
+    }
+
+    // Search movie according to user input
+    async function main(){
+        let query = document.getElementById('query').value;
+        let res = searchMovies(query); // async function returns promise
+        data = await res;
+        displayMovies(data);
+        console.log(data);
+    }
+
+    // Debounce function to inmprove process according to search speed
+    let id;
+    function debounceFunction(func,delay){
+        if(id){
+            clearTimeout(id);
+        }
+        id = setTimeout(function(){
+            func();
+        },delay);
+    }
+
+    // append search data next to search bar
+    const moviesDiv = document.getElementById('movies');
+    function displayMovies(movies){
+        moviesDiv.innerHTML = null;
+        if(movies === undefined){
+            let div = document.createElement('div');
+            let p = document.createElement('p');
+            p.innerText = 'Movie not show...';
+            div.append(p);
+            moviesDiv.append(div);
+            return false;
+        }
+        else{
+            movies.forEach(el => {
+                let div = document.createElement('div');
+                let poster = document.createElement('img');
+                poster.src = el.Poster;
+                let name = document.createElement('h3');
+                name.innerText = el.Title;
+                div.append(poster,name);
+                moviesDiv.append(div);
+                div.addEventListener('click',function(){
+                    movieDesc(el);
+                });
+                
+            });
+        }
+    }
+
+    // append data in to movie section
+    const moviesDesc = document.getElementById('movieDesc');
+    function movieDesc(movie){
+        moviesDesc.innerHTML = null;
+        let div = document.createElement('div');
+
+        let poster = document.createElement('img');
+        poster.src = movie.Poster;
+
+        let div1 = document.createElement('div');
+
+        let name = document.createElement('h3');
+        name.innerText = `Title: ${movie.Title}`
+        ;
+        let type = document.createElement('p');
+        type.innerText = `Type: ${movie.Type}`;
+
+        let year = document.createElement('p');
+        year.innerText = `Year: ${movie.Year}`;
+
+        div1.append(name,type,year);
+        div.append(poster,div1);
+        moviesDesc.append(div);
+    }
+</script>
