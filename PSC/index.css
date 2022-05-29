@@ -1,0 +1,42 @@
+#main>img {
+    height: 720px;
+    width: 100%;
+    position: relative;
+}
+
+#results {
+    height: 350px;
+    width: 530px;
+    border-top: none;
+    overflow: auto;
+    color: white;
+    text-align: center;
+    
+}
+
+#container {
+    margin-left: 500px;
+    margin-top: -650px;
+    position: absolute;
+
+}
+
+#container>div>img {
+    height: 100px;
+    width: 200px;
+    margin-left: 150px;
+
+}
+
+#query {
+    margin-top: 25px;
+    height: 60px;
+    width: 500px;
+    font-size: 20px;
+    border: 0px solid white;
+    border-radius: 20px;
+    background-color: rgb(67, 63, 63);
+    color: black;
+    padding-left: 30px;
+
+}
