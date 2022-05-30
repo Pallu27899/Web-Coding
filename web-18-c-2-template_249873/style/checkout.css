@@ -1,0 +1,29 @@
+#order-form{
+    display: flex;
+    justify-content: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 320px;
+    align-items: center;
+ 
+}
+input{
+    margin: 10px;
+    width: 70%;
+}
+#submit{
+    width: 40%;
+    color: white;
+    background-color: brown;
+    border: brown 1px solid;
+    padding: 5px;
+}
+#submit:hover{
+    color: brown;
+    background-color: azure;
+    border: brown 1px solid;
+    cursor: pointer;
+}
