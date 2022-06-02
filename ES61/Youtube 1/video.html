@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/b0071033d8.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            color: red;
+        }
+        #container {
+            margin: auto;
+        }
+        div{ 
+       
+            text-align: center;
+            justify-content: center;
+            /* justify-items: center; */
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Video
+    </h1>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+    // let bucketItems = JSON.parse(localStorage.getItem("video"));
+    let videopage = JSON.parse(localStorage.getItem("video"));
+
+
+console.log(videopage);
+
+
+    function youtube(urlid){
+        var div = document.createElement("div")
+
+let iframe = document.createElement("iframe");
+    iframe.src =`https://www.youtube.com/embed/${urlid}`;
+    iframe.style.width = "60%";
+    iframe.style.height = "auto";
+    iframe.style.aspectRatio = "16/9"
+    iframe.allow = "fullscreen";
+    iframe.style.margin = "auto";
+
+    let h4 = document.createElement("h4")
+    h4.innerText =videopage.title;
+
+   div.append(iframe, h4);
+   document.querySelector("#container").append(div);
+
+    }
+
+    youtube(videopage.videoId)
+   
+
+
+</script>
