@@ -1,0 +1,27 @@
+#navbar{
+    display:flex;
+    background-color: blanchedalmond;
+    flex-direction: row;
+    justify-content: space-between;
+}
+form{
+    display:flex;
+    flex-direction: column;
+    padding: 15px;
+    justify-content: center;
+    background-color: burlywood;
+}
+
+form>h1,button{
+    margin: auto;
+}
+input{
+    padding: 10px;
+    margin: 18px;
+}
+#container{
+    height: 420px;
+    width: 420px;
+    margin: auto;
+    border-radius: 10px;
+}
