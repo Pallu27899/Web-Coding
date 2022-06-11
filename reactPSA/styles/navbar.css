@@ -1,0 +1,23 @@
+#search_bar{
+    width: 80%;
+    margin: 10px auto;
+}
+
+#query{
+    width:100% ;
+    height: 35px;
+    border: 1px solid red;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: medium;
+}
+#categories{
+    display: flex;
+    justify-content: space-evenly;
+}
+#categories h3{
+    border: 1px solid rgb(182, 57, 57);
+    padding: 10px;
+    border-radius: 10px;
+cursor: pointer;
+}
