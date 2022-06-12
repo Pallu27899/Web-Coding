@@ -1,0 +1,41 @@
+#search_bar{
+    width: 80%;
+    margin: 10px auto;
+}
+#query{
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgb(239, 107, 13);
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-size: medium;
+    outline: none;
+    
+}
+
+#categories{
+    display: flex;
+    justify-content: space-evenly;
+}
+#categories h3{
+    border: 1px solid rgb(255, 25, 0);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+#categories h3:active{
+   color:red;
+    
+}
+
+@media(max-width: 520px) {
+    #categories h3{
+        border: 1px solid orange;
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        
+    }
+}
