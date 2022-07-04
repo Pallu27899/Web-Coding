@@ -1,0 +1,37 @@
+#order-form{
+    display: flex;
+    justify-content: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+}
+
+input{
+    margin:10px;
+    width: 250px;
+    height: 30px;
+    text-align: center;
+    background-color: burlywood;
+    border: none;
+}
+
+#submit{
+    width: 40%;
+    color: black;
+    background-color: cornsilk;
+    border: rgb(15,15,16) 1px solid;
+    padding: 5px;
+}
+#submit:hover{
+    color: rgb(193, 165, 165);
+    background-color: rgb(58, 70, 93);
+}
+body{
+    background-color: darkgray;
+}

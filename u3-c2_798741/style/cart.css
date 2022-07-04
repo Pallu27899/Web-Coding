@@ -1,0 +1,47 @@
+#cart{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+.item{
+    width: 100%;
+    height: 400px;
+    border: 1px solid red;
+}
+img{
+    width: 100%;
+    height: 60%;
+}
+.remove{
+    align-items: center;
+    margin-left: 140px;
+    color: white;
+    background-color: rgb(212, 81, 81);
+    border: 1px solid red;
+}
+.remove:hover{
+    color: rgb(18, 4, 4);
+    background-color: rgb(155, 153, 153);
+    border: 1px solid red;
+    cursor: pointer;
+}
+
+#cart_total{
+    text-align: left;
+}
+
+h2{
+    text-align: center;
+}
+#checkout{
+    margin-top: 30px;
+    color: black;
+    background-color: bisque;
+    border: 1px solid red;
+}
+#checkout:hover{
+    color: rgb(211, 197, 197);
+    background-color: rgb(241, 14, 14);
+    border: 1px solid red;
+    cursor: pointer;
+}
