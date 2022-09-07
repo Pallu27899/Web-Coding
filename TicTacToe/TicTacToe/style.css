@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0 00px;
+}
+
+h1{
+    background-color:brown;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.playercontainer{
+    margin: 8px;
+    display: flex;
+    font-size: 30px;
+    justify-content: space-evenly;
+    font-weight: 600;
+}
+
+.container{
+    display: flex;
+    margin: 15px;
+    justify-content: space-around; 
+    text-align: center;
+
+}
+
+.gamecontainer{
+    display: grid;
+    grid-template-columns: repeat(3, 10vw);
+    grid-template-rows: repeat(3, 10vw);
+
+}
+
+
+
+.box {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vw;
+    cursor: pointer;
+}
+
+.box:hover{
+    background-color: rgb(241, 237, 233);
+}
+
+.informationcontaner{
+    margin-top: 20px;
+    width: 30vw;
+}
+
+.imgbox img{
+    margin-bottom: 20px;
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+.turnplayer_div{
+    height: 30px;
+}
+
+#turnplayer{
+    font-size: 30px;
+    font-weight: 600;
+    height: 50px;
+}
+
+.buttons{
+    /* display: flex; */
+    text-align: center; 
+}
+
+.btn{
+    margin: 30px 30px;
+    border: 1px solid black;
+    color: white;
+    background-color: brown;
+    padding: 10px;
+    width: 120px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+
+.br{
+    border-right: 0;
+}
+
+.bl{
+    border-left: 0;
+}
+
+.bt{
+    border-top: 0;
+}
+
+.bb{
+    border-bottom: 0;
+}

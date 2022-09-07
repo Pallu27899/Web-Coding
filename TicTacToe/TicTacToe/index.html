@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <h1>Hello, Good Afternoon</h1> -->
+    <h1>Welcome To My Tic Tac Toe Game</h1>
+    <div class="playercontainer">
+      <span id="player1">Player 1</span>
+      <span id="player2">Player 2</span>
+    </div>
+    <br />
+    <div class="container">
+      <div class="player_first">
+        <div class="informationcontaner">
+          <div class="imgbox">
+            <img id="player1_img" src="https://media0.giphy.com/media/HI7Tm6tlpwYAE/giphy.gif" alt="" srcset="" />
+          </div>
+        </div>
+      </div>
+      <div class="gamecontainer">
+        <div class="box bl bt"><span class="boxtext"></span></div>
+        <div class="box bt"><span class="boxtext"></span></div>
+        <div class="box bt br"><span class="boxtext"></span></div>
+        <div class="box bl"><span class="boxtext"></span></div>
+        <div class="box"><span class="boxtext"></span></div>
+        <div class="box br"><span class="boxtext"></span></div>
+        <div class="box bl bb"><span class="boxtext"></span></div>
+        <div class="box bb"><span class="boxtext"></span></div>
+        <div class="box br bb"><span class="boxtext"></span></div>
+      </div>
+      <div class="player_second">
+        <div class="informationcontaner">
+          <div class="imgbox">
+            <img id="player2_img" src="https://www.icegif.com/wp-content/uploads/happy-dance-icegif-22.gif" alt="" srcset="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <div class="turnplayer_div">
+        <span class="turnplayer" id="turnplayer"></span>
+      </div>
+      <button id="start" class="start btn">Start</button>
+      <button id="reset" class="reset btn">Reset</button>
+    </div>
+    
+  </body>
+</html>
